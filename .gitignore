@@ -1,0 +1,13 @@
+# Gradle служебные файлы и папка сборки
+.gradle/
+build/
+
+# Настройки IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Логи и операционная система
+*.log
+.DS_Store
+Thumbs.db
