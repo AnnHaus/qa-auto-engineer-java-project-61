@@ -1,10 +1,12 @@
 plugins {
-    plugins {
-        java
-        application
-        id("com.github.ben-manes.versions") version "0.54.0"
-    }
+    java
+    application
+    id("com.github.ben-manes.versions") version "0.54.0"
 }
+
+        application {
+            mainClass.set("hexlet.code.App")
+        }
 
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
