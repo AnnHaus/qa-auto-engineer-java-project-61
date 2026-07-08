@@ -28,13 +28,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      working-directory: app
 
     - name: Run SpotBugs
       run: ./gradlew classes spotbugsMain
+      working-directory: app
 
     - name: Convert and Upload Report to GitHub
       uses: jwgmeligmeyling/spotbugs-github-action@master
       if: always()
       with:
         path: '**/build/reports/spotbugs/main.xml'
-
