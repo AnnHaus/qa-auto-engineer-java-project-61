@@ -43,12 +43,16 @@ tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
 
-tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
-    val sarifReport = reports.create("sarif")
-
-    sarifReport.apply {
-        required.set(true)
-        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
-    }
+spotbugs {
+    ignoreFailures.set(true) // Позволяет продолжить сборку и загрузить отчет, даже если найдены баги
 }
 
+tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
+    reports {
+        // В Kotlin DSL встроенные типы отчетов SpotBugs настраиваются через именованные блоки:
+        named("sarif") {
+            required.set(true)
+            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
+        }
+    }
+}
