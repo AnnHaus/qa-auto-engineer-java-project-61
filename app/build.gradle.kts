@@ -47,11 +47,11 @@ spotbugs {
     ignoreFailures.set(true) 
 }
 
-tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
-    reports {
-        create("sarif") {
-            required.set(true)
-            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
-        }
+tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
+    val sarifReport = reports.create("sarif")
+
+    sarifReport.apply {
+        required.set(true)
+        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
     }
 }
