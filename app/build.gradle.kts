@@ -56,3 +56,12 @@ tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
         }
     }
 }
+
+tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
+    val sarifReport = reports.create("sarif")
+
+    sarifReport.apply {
+        required.set(true)
+        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
+    }
+}
