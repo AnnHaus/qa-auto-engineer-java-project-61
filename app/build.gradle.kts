@@ -5,9 +5,9 @@ plugins {
     id("com.github.spotbugs") version "6.5.8"
 }
 
-        application {
-            mainClass.set("hexlet.code.App")
-        }
+application {
+    mainClass.set("hexlet.code.App")
+}
 
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
@@ -17,15 +17,15 @@ repositories {
 }
 
 spotbugs {
-    ignoreFailures.set(false) // Сборка упадет, если SpotBugs найдет критические ошибки
+    ignoreFailures.set(true) 
 }
 
-tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
-    val sarifReport = reports.create("sarif")
-
-    sarifReport.apply {
-        required.set(true)
-        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
+tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
+    reports {
+        create("sarif") {
+            required.set(true)
+            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
+        }
     }
 }
 
@@ -41,17 +41,4 @@ tasks.test {
 
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
-}
-
-spotbugs {
-    ignoreFailures.set(true) 
-}
-
-tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
-    val sarifReport = reports.create("sarif")
-
-    sarifReport.apply {
-        required.set(true)
-        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
-    }
 }
