@@ -33,7 +33,8 @@ jobs:
       run: ./gradlew classes spotbugsMain
 
     - name: Convert and Upload Report to GitHub
-      uses: jwgmeligmeyling/spotbugs-github-action@v2
+      uses: jwgmeligmeyling/spotbugs-github-action@master
       if: always()
       with:
         path: '**/build/reports/spotbugs/main.xml'
+
