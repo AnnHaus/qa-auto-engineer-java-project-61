@@ -44,17 +44,7 @@ tasks.getByName("run", JavaExec::class) {
 }
 
 spotbugs {
-    ignoreFailures.set(true) // Позволяет продолжить сборку и загрузить отчет, даже если найдены баги
-}
-
-tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
-    reports {
-        // В Kotlin DSL встроенные типы отчетов SpotBugs настраиваются через именованные блоки:
-        named("sarif") {
-            required.set(true)
-            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
-        }
-    }
+    ignoreFailures.set(true)
 }
 
 tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
