@@ -2,6 +2,7 @@ plugins {
     java
     application
     id("com.github.ben-manes.versions") version "0.54.0"
+    id("com.github.spotbugs") version "6.5.8"
 }
 
         application {
@@ -15,6 +16,19 @@ repositories {
     mavenCentral()
 }
 
+spotbugs {
+    ignoreFailures.set(false) // Сборка упадет, если SpotBugs найдет критические ошибки
+}
+
+tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
+    val sarifReport = reports.create("sarif")
+
+    sarifReport.apply {
+        required.set(true)
+        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
+    }
+}
+
 dependencies {
     testImplementation(platform("org.junit:junit-bom:6.0.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -24,3 +38,8 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
+
