@@ -43,17 +43,12 @@ tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
 
-spotbugs {
-    ignoreFailures.set(true) // Чтобы сборка не падала из-за багов, а загружала отчет
-}
+tasks.withType<com.github.spotbugs.snom.SpotBugsTask> {
+    val sarifReport = reports.create("sarif")
 
-tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
-    reports {
-        create("sarif") {
-            required.set(true)
-            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
-        }
+    sarifReport.apply {
+        required.set(true)
+        outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
     }
 }
-
 
