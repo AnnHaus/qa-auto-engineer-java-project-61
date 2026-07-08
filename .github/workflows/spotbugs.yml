@@ -33,7 +33,7 @@ jobs:
       run: ./gradlew spotbugsMain
 
     - name: Upload SARIF file to GitHub Code Scanning
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@v4
       if: always()
       with:
         sarif_file: build/reports/spotbugs/main.sarif
