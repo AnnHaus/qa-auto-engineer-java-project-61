@@ -17,14 +17,18 @@ repositories {
 }
 
 spotbugs {
-    ignoreFailures.set(true) 
+    ignoreFailures.set(true) // Чтобы баги в коде не ломали сборку на сервере
 }
 
 tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
     reports {
-        create("sarif") {
+        // Выключаем проблемный sarif
+        create("sarif") { required.set(false) }
+        
+        // Включаем железобетонный XML, который плагин точно умеет создавать
+        create("xml") {
             required.set(true)
-            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.sarif"))
+            outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.xml"))
         }
     }
 }
