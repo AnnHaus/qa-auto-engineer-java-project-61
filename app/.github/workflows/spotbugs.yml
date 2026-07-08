@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: read
-  security-events: write # Ключевой параметр для работы со вкладкой Security в GitHub
+  security-events: write 
 
 jobs:
   spotbugs:
@@ -22,7 +22,7 @@ jobs:
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
-        java-version: '17' # Замените на 11, 21 или вашу версию Java, если она отличается
+        java-version: '17' 
         distribution: 'temurin'
         cache: gradle
 
@@ -32,9 +32,8 @@ jobs:
     - name: Run SpotBugs
       run: ./gradlew spotbugsMain
 
-    # Этот шаг берет сгенерированный SARIF-файл и красиво выводит ошибки в интерфейс GitHub
     - name: Upload SARIF file to GitHub Code Scanning
-      uses: github/code-scanning-github-action@v2
-      if: always() # Запускать, даже если SpotBugs нашел ошибки и прервал шаг выше
+      uses: github/code-scanning-github-action@v4
+      if: always() 
       with:
         sarif_file: build/reports/spotbugs/main.sarif
