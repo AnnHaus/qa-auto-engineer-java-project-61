@@ -17,15 +17,13 @@ repositories {
 }
 
 spotbugs {
-    ignoreFailures.set(true) // Чтобы баги в коде не ломали сборку на сервере
+    ignoreFailures.set(true)
 }
 
 tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
     reports {
-        // Выключаем проблемный sarif
         create("sarif") { required.set(false) }
         
-        // Включаем железобетонный XML, который плагин точно умеет создавать
         create("xml") {
             required.set(true)
             outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.xml"))
@@ -46,3 +44,4 @@ tasks.test {
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
+
