@@ -3,6 +3,13 @@ plugins {
     application
     id("com.github.ben-manes.versions") version "0.54.0"
     id("com.github.spotbugs") version "6.5.8"
+    checkstyle
+}
+
+checkstyle {
+    toolVersion = "10.12.4"
+    configFile = rootProject.file("app/config/checkstyle/checkstyle.xml")
+    isIgnoreFailures = false
 }
 
 application {
