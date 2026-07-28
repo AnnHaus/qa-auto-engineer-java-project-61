@@ -1,41 +1,23 @@
 package hexlet.code;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Even {
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final int MAX_NUMBER = 100;
 
-    public static void runGame(String userName) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
+    public static void runGame() {
+        String[][] roundsData = new String[Engine.MAX_ROUNDS][2];
         Random random = new Random();
-        final int maxRounds = 3;
-        final int maxNumber = 100;
 
-        for (int i = 0; i < maxRounds; i++) {
-
-            int number = random.nextInt(maxNumber);
-            System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-
-            String answer = scanner.next().toLowerCase();
-
+        for (int i = 0; i < Engine.MAX_ROUNDS; i++) {
+            int number = random.nextInt(MAX_NUMBER);
             String correctAnswer = (number % 2 == 0) ? "yes" : "no";
 
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + userName + "!");
-                return;
-            }
+            roundsData[i][Engine.QUESTION_INDEX] = Integer.toString(number);
+            roundsData[i][Engine.ANSWER_INDEX] = correctAnswer;
         }
 
-        System.out.println("Congratulations, " + userName + "!");
+        Engine.run(DESCRIPTION, roundsData);
     }
 }
-
-
