@@ -1,6 +1,6 @@
 # Brain Games
 
-[![Hexlet check](https://github.com)](https://github.com/AnnHaus/qa-auto-engineer-java-project-61/blob/main/.github/workflows/hexlet-check.yml)
+[![Hexlet check](https://github.com/workflows/hexlet-check.yml/badge.svg)](https://github.com/AnnHaus/qa-auto-engineer-java-project-61/blob/main/.github/workflows/hexlet-check.yml)
 [![SpotBugs](https://github.com/workflows/spotbugs.yml/badge.svg)](https://github.com/AnnHaus/qa-auto-engineer-java-project-61/blob/main/.github/workflows/spotbugs.yml)
 
 ## Links to game demos
