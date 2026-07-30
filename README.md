@@ -6,7 +6,7 @@
 [asciicast](https://asciinema.org/a/IBQj7RD962ECretO)
 
 ### Game 3: Calc
-[asciicast](https://asciinema.org/a/9d4tBMFHQms12iF7)
+[asciicast](https://asciinema.org/a/Po4ac0C178vgVu2k)
 
 ### Game 4: GCD
 [asciicast](https://asciinema.org/connect/b8324ff6-8ed4-4c47-8d8f-c24d9dde08c4)
