@@ -13,3 +13,6 @@
 
 ### Game 5: Progression
 [asciicast](https://asciinema.org/a/bXKWc7sqpkpTXeus)
+
+### Game 6: Prime
+[asciicast](https://asciinema.org/a/tZGgdya7cODuh3Ke)
