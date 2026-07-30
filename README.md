@@ -1,5 +1,8 @@
 # Brain Games
 
+[![Hexlet check](https://github.com)](https://github.com/AnnHaus)
+[![SpotBugs](https://github.com/workflows/spotbugs.yml/badge.svg)](https://github.com/AnnHaus)
+
 ## Links to game demos
 
 ### Game 1 and 2: Greet and Even
