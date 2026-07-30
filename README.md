@@ -10,3 +10,6 @@
 
 ### Game: Calc
 [asciicast](https://asciinema.org/connect/b8324ff6-8ed4-4c47-8d8f-c24d9dde08c4)
+
+### Game: GCD
+[asciicast](https://asciinema.org/connect/b8324ff6-8ed4-4c47-8d8f-c24d9dde08c4)
