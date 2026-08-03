@@ -30,10 +30,10 @@ public class App {
                 Cli.greetUser();
                 break;
             case "2":
-                Even.runGame();
+                Even.play();
                 break;
             case "3":
-                Calc.runGame();
+                Calc.play();
                 break;
             case "4":
                 GCD.play();
@@ -47,9 +47,9 @@ public class App {
             case "0":
                 break;
             default:
+                System.out.println("Unknown game number: " + choice);
                 break;
         }
-
         scanner.close();
     }
 }

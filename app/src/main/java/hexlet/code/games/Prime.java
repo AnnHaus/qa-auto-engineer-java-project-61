@@ -16,9 +16,21 @@ public class Prime {
 
             roundsData[i][0] = String.valueOf(number);
 
-            roundsData[i][1] = Utils.isPrime(number) ? "yes" : "no";
+            roundsData[i][1] = isPrime(number) ? "yes" : "no";
         }
 
         Engine.run(DESCRIPTION, roundsData);
+    }
+
+    public static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

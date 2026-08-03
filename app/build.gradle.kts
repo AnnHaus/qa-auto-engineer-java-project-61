@@ -1,5 +1,4 @@
 plugins {
-    java
     application
     id("com.github.ben-manes.versions") version "0.54.0"
     id("com.github.spotbugs") version "6.5.8"
@@ -36,12 +35,6 @@ tasks.withType<com.github.spotbugs.snom.SpotBugsTask>().configureEach {
             outputLocation.set(layout.buildDirectory.file("reports/spotbugs/main.xml"))
         }
     }
-}
-
-dependencies {
-    testImplementation(platform("org.junit:junit-bom:6.0.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {

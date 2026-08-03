@@ -8,7 +8,7 @@ public class Calc {
     private static final String DESCRIPTION = "What is the result of the expression?";
     private static final int MAX_NUMBER = 50;
 
-    public static void runGame() {
+    public static void play() {
         String[][] roundsData = new String[Engine.MAX_ROUNDS][2];
         Random random = new Random();
         String[] operators = {"+", "-", "*"};

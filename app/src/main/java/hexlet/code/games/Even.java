@@ -8,7 +8,7 @@ public class Even {
     private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     private static final int MAX_NUMBER = 100;
 
-    public static void runGame() {
+    public static void play() {
         String[][] roundsData = new String[Engine.MAX_ROUNDS][2];
         Random random = new Random();
 
